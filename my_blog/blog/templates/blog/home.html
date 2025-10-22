@@ -8,7 +8,45 @@ Home Page
 <link rel="stylesheet" href="{% static "blog/home.css" %}" >
 {% endblock  %}
 {% block  content %}
+<header id="main-navigation">
 <h1>
-Hello this is my blog page.
+    <a href="">Nico's Blog</a>
 </h1>
+<nav>
+    <a href="">All posts</a>
+</nav>
+</header>
+<section id="welcome">
+    <header>
+        <img src="" alt="Nico - The author">
+        <h2> Nico's Blog </h2>
+    </header>
+    <p> Hi, im Daniel and i love Coding </p>
+</section>
+
+<section id= "latest-posts">
+    <h2> 
+    My latest thoughts
+    </h2>
+    <ul>
+        <li>
+            <article class="post">
+                <a href="">
+                    <img src="" alt="First post">
+                    <div class="post_content">
+                        <h3>First post</h3>
+                        <p>Some description</p> 
+                    </div>
+                </a>
+            </article>
+        </li>
+    </ul>
+</section>
+
+
+<section>
+    <h2>What i do</h2>
+    <p>I love coding</p>
+    <p>My goal is to keep growing</p>
+</section>
 {% endblock  %}
