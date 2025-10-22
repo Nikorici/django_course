@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 monthly_challanges= {
     "january": "Work harder!",
     "february": "Keep the momentum!",
@@ -13,11 +14,16 @@ monthly_challanges= {
     "september": "Push your limits!",
     "october": "Stay disciplined!",
     "november": "Finish strong!",
-    "december": "Reflect and prepare for next year!"
+    "december": None
 }
 
-def index(request):
-    return HttpResponse("This works!")
+def home(request):
+    month_list=list(monthly_challanges.keys())
+    path=reverse("monthly_challanges", args=[month_list])
+    return render(request, "challenges/index.html",{
+        "month_list":month_list,
+        "path":path,
+    })
 
 def monthly_challange_by_number(request, month):
     try:
@@ -29,6 +35,12 @@ def monthly_challange_by_number(request, month):
 
 def monthly_challange(request, month):
     try:
-        return HttpResponse(monthly_challanges[month])
+        monthly_challange_text=monthly_challanges[month]
+        return render(request, "challenges/challange.html",{
+            "text":monthly_challange_text,
+            "month":month,
+
+        })
     except:
-        return HttpResponseNotFound("choose the month")
+        raise Http404()
+    
