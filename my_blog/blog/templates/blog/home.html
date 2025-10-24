@@ -8,20 +8,13 @@ Home Page
 <link rel="stylesheet" href="{% static "blog/home.css" %}" >
 {% endblock  %}
 {% block  content %}
-<header id="main-navigation">
-<h1>
-    <a href="">Nico's Blog</a>
-</h1>
-<nav>
-    <a href="">All posts</a>
-</nav>
-</header>
+
 <section id="welcome">
     <header>
-        <img src="" alt="Nico - The author">
+        <img src="{% static "blog/images/me.png" %}" alt="Nico - The author">
         <h2> Nico's Blog </h2>
     </header>
-    <p> Hi, im Daniel and i love Coding </p>
+    <p> Hi, im Daniel and i love coding </p>
 </section>
 
 <section id= "latest-posts">
@@ -29,22 +22,12 @@ Home Page
     My latest thoughts
     </h2>
     <ul>
-        <li>
-            <article class="post">
-                <a href="">
-                    <img src="" alt="First post">
-                    <div class="post_content">
-                        <h3>First post</h3>
-                        <p>Some description</p> 
-                    </div>
-                </a>
-            </article>
-        </li>
+        {% include "blog/includes/post.html" %}
     </ul>
 </section>
 
 
-<section>
+<section id="about">
     <h2>What i do</h2>
     <p>I love coding</p>
     <p>My goal is to keep growing</p>
