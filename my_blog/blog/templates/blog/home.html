@@ -5,14 +5,15 @@
 Home Page
 {% endblock  %}
 {% block style_css %}
-<link rel="stylesheet" href="{% static "blog/home.css" %}" >
+<link rel="stylesheet" href="{% static "blog/post.css" %}">
+<link rel="stylesheet" href="{% static "blog/home.css" %}">
 {% endblock  %}
 {% block  content %}
 
 <section id="welcome">
     <header>
         <img src="{% static "blog/images/me.png" %}" alt="Nico - The author">
-        <h2> Nico's Blog </h2>
+        <h2> Nico's Blog</h2>
     </header>
     <p> Hi, im Daniel and i love coding </p>
 </section>
